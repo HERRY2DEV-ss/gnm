@@ -258,7 +258,7 @@ h2{color:var(--p);text-align:center;margin-bottom:28px;font-size:1.5rem}
 .ft-b2{left:calc(358*var(--u))}.ft-a2{left:calc(352*var(--u))}
 .ft-f{position:absolute;left:calc(83*var(--u));top:calc(205*var(--u));font-size:calc(11.5*var(--u));line-height:calc(16*var(--u));font-weight:700;white-space:nowrap}
 .ft-s{position:absolute;top:calc(207*var(--u));width:calc(11*var(--u));height:calc(11*var(--u));display:grid;place-items:center}.ft-s img{display:block;width:100%;height:100%;object-fit:contain}
-.s1{left:calc(148.5*var(--u))}.s2{left:calc(166.5*var(--u))}.s3{left:calc(184.5*var(--u))}.s4{left:calc(203*var(--u))}.s5{left:calc(222*var(--u))}
+.s1{left:calc(148.5*var(--u))}.s2{left:calc(166.5*var(--u))}.s3{left:calc(184.5*var(--u))}.s4{left:calc(203*var(--u))}.s5{left:calc(203*var(--u))}
  
 html{scroll-behavior:smooth}
 .hero small{display:block}
@@ -432,4 +432,11 @@ html{scroll-behavior:smooth}
 @media (max-width: 1000px) {
   html, body { max-width: 100%; overflow-x: hidden; }
   .hero, .hform, section, footer, .ft { max-width: 100%; box-sizing: border-box; }
+}
+
+/* Footer social icons: always visible (mobile + desktop) */
+.ft-s, .ft-s.rv, .js .ft-s.rv { opacity: 1 !important; visibility: visible !important; transform: none; }
+@media (max-width: 1000px) {
+  .ft-s { display: inline-grid !important; width: 22px !important; height: 22px !important; margin-right: 16px; }
+  .ft-s img { width: 100%; height: 100%; }
 }
