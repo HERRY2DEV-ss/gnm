@@ -356,8 +356,13 @@
           k.style.setProperty('--r', sh > ch ? ch / sh : 1);
           k.style.setProperty('--p', sh > ch ? w.scrollTop / sh : 0);
         }
-        function step() { var c = t.children; return c.length > 1 ? c[1].offsetTop - c[0].offsetTop : 0 }
+        var H = function () { return matchMedia('(max-width:1000px)').matches };
+        function step() { var c = t.children; return c.length > 1 ? (H() ? c[1].offsetLeft - c[0].offsetLeft : c[1].offsetTop - c[0].offsetTop) : 0 }
         function next() {
+          if (H()) {
+            var mx = w.scrollWidth - w.clientWidth; if (mx <= 2) return;
+            w.scrollTo({ left: w.scrollLeft >= mx - 2 ? 0 : w.scrollLeft + step(), behavior: 'smooth' }); return;
+          }
           var max = w.scrollHeight - w.clientHeight; if (max <= 2) return;
           w.scrollTo({ top: w.scrollTop >= max - 2 ? 0 : w.scrollTop + step(), behavior: 'smooth' });
         }
